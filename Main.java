@@ -12,7 +12,7 @@ public class Main {
     public static void main(String[] args) {
         JFrame frame = new JFrame("Beach Animation inspired by Image");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setSize(600, 600);
+        frame.setSize(615, 640);
         frame.setLocationRelativeTo(null);
         frame.add(new DrawingPanel());
         frame.setVisible(true);
