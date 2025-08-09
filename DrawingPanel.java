@@ -24,7 +24,8 @@ public class DrawingPanel extends JPanel implements ActionListener {
     public DrawingPanel() {
         this.setPreferredSize(new Dimension(PANEL_WIDTH, PANEL_HEIGHT));
         this.setBackground(Color.CYAN);
-        timer = new Timer(50, this);
+        // timer = new Timer(50, this);
+        timer = new Timer(30, this);
         timer.start();
     }
 
@@ -46,7 +47,8 @@ public class DrawingPanel extends JPanel implements ActionListener {
         if (sunY < 300) sunY++;
         waveOffset -= 1.5;
         if (waveOffset < -50) waveOffset = 0;
-        characterX += 1;
+        // characterX += 1;
+        characterX += 3;
         if (characterX > PANEL_WIDTH + 100) characterX = -100;
         repaint();
     }
