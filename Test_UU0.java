@@ -1,31 +1,31 @@
 import java.awt.*;
 import java.awt.geom.*;
-import java.awt.image.BufferedImage;
-import java.util.Stack;
 
-public class Test_UU {
+public class Test_UU0 {
+    public static void draw(Graphics2D g2d, double x, double y) {
+        // g2d.fill(new Ellipse2D.Double(x, y, 50, 60));
+        // g2d.fill(new Ellipse2D.Double(x - 10, y - 30, 45, 45));
+        // g2d.fill(new Ellipse2D.Double(x - 20, y - 15, 20, 20));
+        // g2d.fill(new Ellipse2D.Double(x + 25, y - 15, 20, 20));
 
-    private final Test_U parent; // หรือเก็บเป็น BufferedImage ก็ได้
+        // g2d.setColor(Color.BLACK);
+        // g2d.fill(new Ellipse2D.Double(x + 5, y - 15, 5, 5));
+        // g2d.fill(new Ellipse2D.Double(x + 20, y - 15, 5, 5));
+        // g2d.draw(new QuadCurve2D.Double(x + 10, y - 5, x + 15, y, x + 20, y - 5));
 
-    public Test_UU(Test_U parent) {
-        this.parent = parent;
-    }
+        // g2d.setColor(new Color(0, 49, 83));
+        // g2d.fillRect((int) x, (int) y + 10, 50, 20);
+        // g2d.fillPolygon(new int[]{(int)x+10, (int)x+25, (int)x+40}, new int[]{(int)y, (int)y+15, (int)y}, 3);
 
-    public static void draw(Graphics2D g2d, double x, double y, Test_U parent) {
-        // int scale = parent.getScale();  // หรือส่ง scale มาในพารามิเตอร์ด้วย
 
-        // // ลด stroke ให้เหมาะกับการย่อภาพ
-        // float baseStroke = 3f;
-        // float adjustedStroke = baseStroke * (scale > 1 ? 1f : scale); // หรือแค่ baseStroke ก็ได้
-        // g2d.setStroke(new BasicStroke(adjustedStroke));
 
         // เปิดใช้งานความเรียบเนียน (Anti-aliasing)
         g2d.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
         // หนา 3 px
         g2d.setStroke(new BasicStroke(3)); 
 
-        // set colur-shadow head
-        g2d.setColor(new Color(255, 195, 144));
+        // set colur
+        g2d.setColor(new Color(255, 203, 162));
 
         // shadow head
         g2d.draw(new QuadCurve2D.Double(x + 92, y + 25, x + 97, y + 23, x + 96, y + 16));
@@ -33,14 +33,8 @@ public class Test_UU {
         g2d.draw(new QuadCurve2D.Double(x + 92, y + 40, x + 80, y + 57, x + 89, y + 57));
         g2d.draw(new QuadCurve2D.Double(x + 89, y + 57, x + 85, y + 70, x + 88, y + 85));
 
-        // set colur-shadow hat
-        g2d.setColor(new Color(115, 71, 121));
-
         // shadow-hat
         g2d.draw(new QuadCurve2D.Double(x + 108, y + 9, x + 105, y + 15, x + 120, y + 21));
-
-        // set colur-shadow head
-        g2d.setColor(new Color(255, 203, 159));
 
         // shadow shirt
         g2d.draw(new QuadCurve2D.Double(x + 72, y + 80, x + 52, y + 93, x + 65, y + 114));
@@ -175,106 +169,38 @@ public class Test_UU {
         g2d.draw(new QuadCurve2D.Double(x + 20, y + 126, x + 20, y + 105, x + 40, y + 97));
 
 
-        // ตัวอย่างเรียก floodFill
-        // BufferedImage img = parent.getCanvas();
-        // int target = img.getRGB((int)x + 100, (int)y + 50);
-        // int replacement = Color.RED.getRGB();
-        // parent.floodFill((int)x + 100, (int)y + 50, target, replacement);
 
-        // parent.repaint();
 
-        // set colur-shadow head
-        parent.floodFill((int) x + 80, (int) y + 60, 
-                 parent.getCanvas().getRGB((int) x + 80, (int) y + 60), 
-                 new Color(255, 195, 144).getRGB());
 
-        // set colur-shadow leg R
-        parent.floodFill((int) x + 85, (int) y + 150, 
-                 parent.getCanvas().getRGB((int) x + 85, (int) y + 150), 
-                 new Color(255, 195, 144).getRGB());
+        // // วาดพื้นหลังสีขาวเต็มจอ
+        // g2.setColor(Color.WHITE);
+        // g2.fillRect(0, 0, getWidth(), getHeight());
 
-        // set colur-shadow leg L
-        parent.floodFill((int) x + 100, (int) y + 170, 
-                 parent.getCanvas().getRGB((int) x + 100, (int) y + 170), 
-                 new Color(255, 195, 144).getRGB());
+        // // วาดเส้นตรงสีน้ำเงิน
+        // g2.setColor(Color.BLUE);
+        // g2.setStroke(new BasicStroke(3)); // หนา 3 px
+        // g2.draw(new Line2D.Double(50, 50, 200, 50));
 
-        // set colur-shadow tail
-        parent.floodFill((int) x + 50, (int) y + 130, 
-                 parent.getCanvas().getRGB((int) x + 50, (int) y + 130), 
-                 new Color(255, 195, 144).getRGB());
+        // // วาดเส้นโค้งแบบควอด (Quadratic Curve) สีแดง
+        // g2.setColor(Color.RED);
+        // QuadCurve2D q = new QuadCurve2D.Double();
+        // q.setCurve(50, 100, 125, 50, 200, 100);
+        // g2.draw(q);
 
-        // set colur-shadow hand R
-        parent.floodFill((int) x + 50, (int) y + 100, 
-                 parent.getCanvas().getRGB((int) x + 50, (int) y + 100), 
-                 new Color(255, 195, 144).getRGB());
+        // // วาดเส้นโค้งแบบคิวบิก (Cubic Curve) สีเขียว
+        // g2.setColor(Color.GREEN.darker());
+        // CubicCurve2D c = new CubicCurve2D.Double(50, 150, 90, 120, 160, 180, 200, 150);
+        // g2.draw(c);
 
-        // set colur-shadow shirt
-        parent.floodFill((int) x + 60, (int) y + 85, 
-                 parent.getCanvas().getRGB((int) x + 60, (int) y + 85), 
-                 new Color(255, 203, 159).getRGB());
-        parent.floodFill((int) x + 70, (int) y + 120, 
-                 parent.getCanvas().getRGB((int) x + 70, (int) y + 120), 
-                 new Color(255, 203, 159).getRGB());
+        // // วาดวงรี (Ellipse) สีส้มเติมเต็ม
+        // g2.setColor(new Color(255, 165, 0)); // สีส้ม
+        // Ellipse2D ellipse = new Ellipse2D.Double(50, 200, 150, 80);
+        // g2.fill(ellipse);
 
-        // set colur-shadow hat
-        parent.floodFill((int) x + 60, (int) y + 30, 
-                 parent.getCanvas().getRGB((int) x + 60, (int) y + 30), 
-                 new Color(115, 71, 121).getRGB());
-        parent.floodFill((int) x + 80, (int) y + 15, 
-                 parent.getCanvas().getRGB((int) x + 80, (int) y + 15), 
-                 new Color(115, 71, 121).getRGB());
-        parent.floodFill((int) x + 75, (int) y + 35, 
-                 parent.getCanvas().getRGB((int) x + 75, (int) y + 35), 
-                 new Color(115, 71, 121).getRGB());
-        parent.floodFill((int) x + 105, (int) y + 15, 
-                 parent.getCanvas().getRGB((int) x + 105, (int) y + 15), 
-                 new Color(115, 71, 121).getRGB());
-        
-        // set colur-shadow boo
-        parent.floodFill((int) x + 62, (int) y + 74, 
-                 parent.getCanvas().getRGB((int) x + 62, (int) y + 74), 
-                 new Color(115, 71, 121).getRGB());
-        parent.floodFill((int) x + 85, (int) y + 90, 
-                 parent.getCanvas().getRGB((int) x + 85, (int) y + 90), 
-                 new Color(115, 71, 121).getRGB());
-
-        // set colur-boo
-        parent.floodFill((int) x + 105, (int) y + 105, 
-                 parent.getCanvas().getRGB((int) x + 105, (int) y + 110), 
-                 new Color(115, 89, 190).getRGB());
-        parent.floodFill((int) x + 120, (int) y + 110, 
-                 parent.getCanvas().getRGB((int) x + 120, (int) y + 110), 
-                 new Color(115, 89, 190).getRGB());
-        parent.floodFill((int) x + 120, (int) y + 98, 
-                 parent.getCanvas().getRGB((int) x + 120, (int) y + 98), 
-                 new Color(115, 89, 190).getRGB());
-        parent.floodFill((int) x + 140, (int) y + 100, 
-                 parent.getCanvas().getRGB((int) x + 140, (int) y + 100), 
-                 new Color(115, 89, 190).getRGB());
-
-        // set colur-hat
-        parent.floodFill((int) x + 120, (int) y + 15, 
-                 parent.getCanvas().getRGB((int) x + 120, (int) y + 15), 
-                 new Color(115, 89, 190).getRGB());
-
-        // set colur-lin
-        parent.floodFill((int) x + 135, (int) y + 75, 
-                 parent.getCanvas().getRGB((int) x + 135, (int) y + 75), 
-                 new Color(255, 101, 101).getRGB());
-
-        // // set colur-body
-        // parent.floodFill((int) x + 120, (int) y + 40, 
-        //          parent.getCanvas().getRGB((int) x + 120, (int) y + 40), 
-        //          new Color(255, 245, 227).getRGB());
-        // parent.floodFill((int) x + 120, (int) y + 140, 
-        //          parent.getCanvas().getRGB((int) x + 120, (int) y + 140), 
-        //          new Color(255, 245, 227).getRGB());
-        // parent.floodFill((int) x + 165, (int) y + 115, 
-        //          parent.getCanvas().getRGB((int) x + 165, (int) y + 115), 
-        //          new Color(255, 245, 227).getRGB());
-
+        // // วาดสี่เหลี่ยมสีม่วงเส้นขอบหนา
+        // g2.setColor(new Color(128, 0, 128)); // สีม่วง
+        // g2.setStroke(new BasicStroke(5));
+        // Rectangle rect = new Rectangle(220, 200, 100, 80);
+        // g2.draw(rect);
     }
-
-    
-
 }
