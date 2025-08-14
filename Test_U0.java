@@ -18,21 +18,21 @@ public class Test_U0 extends JPanel{
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setSize(600, 650);
         frame.add(new Test_U0());
-        // frame.setLocationRelativeTo(null);
+        frame.setLocationRelativeTo(null);
         frame.setLocation(100, 150);
         frame.setVisible(true);
     }
 
-    // static {
-    //     try {
-    //         // โหลดภาพครั้งเดียวตอน class โหลด
-    //         samoyedImage = ImageIO.read(new File("img/samoyed_walk_01.png")); // ชื่อไฟล์และ path ปรับให้ตรงของคุณ
-    //         // samoyedImage = ImageIO.read(Samoyed.class.getResource("/img/samoyed_walk_01.png"));
+    static {
+        try {
+            // โหลดภาพครั้งเดียวตอน class โหลด
+            samoyedImage = ImageIO.read(new File("img/samoyed_walk_05.png")); // ชื่อไฟล์และ path ปรับให้ตรงของคุณ
+            // samoyedImage = ImageIO.read(Samoyed.class.getResource("/img/samoyed_walk_01.png"));
 
-    //     } catch (IOException e) {
-    //         e.printStackTrace();
-    //     }
-    // }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 
 
     @Override
@@ -49,9 +49,9 @@ public class Test_U0 extends JPanel{
         // ขยายทุกอย่างในกราฟิกด้วย scale
         g2.scale(scale, scale);
 
-        // if (samoyedImage != null) {
-        //     g2.drawImage(samoyedImage, 60, 60, null);
-        // }
+        if (samoyedImage != null) {
+            g2.drawImage(samoyedImage, 60, 60, null);
+        }
 
         test_UU.draw(g2, characterX, characterY);
 
