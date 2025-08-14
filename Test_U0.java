@@ -26,7 +26,7 @@ public class Test_U0 extends JPanel{
     static {
         try {
             // โหลดภาพครั้งเดียวตอน class โหลด
-            samoyedImage = ImageIO.read(new File("img/samoyed_walk_05.png")); // ชื่อไฟล์และ path ปรับให้ตรงของคุณ
+            samoyedImage = ImageIO.read(new File("img/samoyed_walk_08.png")); // ชื่อไฟล์และ path ปรับให้ตรงของคุณ
             // samoyedImage = ImageIO.read(Samoyed.class.getResource("/img/samoyed_walk_01.png"));
 
         } catch (IOException e) {
