@@ -121,7 +121,7 @@ public class Shoreline {
         final double[] MAX_REACH = {
             23.0,  // dark (least)
             55.0,  // mid
-            70.0,  // white
+            75.0,  // white
             80.0  // sand-under (most)
         };
 
