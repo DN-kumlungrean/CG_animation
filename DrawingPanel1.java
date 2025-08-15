@@ -11,8 +11,8 @@ public class DrawingPanel1 extends JPanel implements ActionListener {
     private static final int ANIMATION_DURATION_MS = 5000; 
     private static final int TIMER_DELAY_MS = 30; 
     // Wave timings (time-based ping-pong)
-    private static final int WAVE_IN_MS  = 8000; // ซัดเข้า 2.5 วิ
-    private static final int WAVE_OUT_MS = 7500; // ถอยกลับ 2.5 วิ (รวมเป็น 5 วิ)
+    private static final int WAVE_IN_MS  = 8000; 
+    private static final int WAVE_OUT_MS = 7500; 
     private static final double SUN_Y_INCREMENT = 
         (SUN_END_Y - SUN_START_Y) / (ANIMATION_DURATION_MS / (double)TIMER_DELAY_MS);
 
