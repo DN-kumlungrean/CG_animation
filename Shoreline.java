@@ -7,7 +7,7 @@ import java.awt.geom.Path2D;
 public class Shoreline {
 
     // === Colors (keep your palette) ===
-    private final Color WAVE_BASE_COLOR   = new Color(144, 122, 161);          // dark purple (top-most, retracts last)
+    private final Color WAVE_BASE_COLOR   = new Color(146, 128, 166);          // dark purple (top-most, retracts last)
     private final Color WAVE_MID_COLOR    = new Color(170, 145, 175, 200);     // mid (slightly transparent)
     private final Color WAVE_TOP_COLOR    = new Color(255, 255, 255, 220);     // white foam
     private final Color SAND_UNDER_COLOR  = new Color(188, 160, 120, 220);     // wet sand under foam

@@ -4,7 +4,7 @@ import java.awt.geom.Ellipse2D;
 public class Sea {
     // สีที่ถูกต้องตามที่คุณระบุ
     private final Color START_SEA_COLOR = new Color(200, 162, 181);
-    private final Color END_SEA_COLOR = new Color(144, 122, 161); // 134, 110, 153
+    private final Color END_SEA_COLOR = new Color(146, 128, 166); 
     private final int NUMBER_OF_LAYERS = 30;
     private final int LAYER_HEIGHT = 110 / NUMBER_OF_LAYERS;
     private final int SEA_HEIGHT = 55; // sea height
