@@ -21,7 +21,7 @@ public class DrawingPanel extends JPanel implements ActionListener {
     private final Clouds clouds = new Clouds();
     private final Characters characters = new Characters();
 
-    private final Test_UU0 test_UU0 = new Test_UU0();
+    private final Test_UU1 test_UU1 = new Test_UU1();
 
     public DrawingPanel() {
         this.setPreferredSize(new Dimension(PANEL_WIDTH, PANEL_HEIGHT));
@@ -43,7 +43,7 @@ public class DrawingPanel extends JPanel implements ActionListener {
         clouds.draw(g2d, PANEL_WIDTH);
         characters.draw(g2d, characterX);
 
-        test_UU0.draw(g2d, characterX, sunY);
+        test_UU1.draw(g2d, characterX, sunY);
     }
 
     @Override

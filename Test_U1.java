@@ -8,25 +8,29 @@ import java.io.IOException;
 
 public class Test_U1 extends JPanel{
     private static BufferedImage samoyedImage;
-    private double characterX = 60;
-    private double characterY = 60;
+    // private double characterX = 60;
+    // private double characterY = 60;
+    private double characterX = 10;
+    private double characterY = 10;
 
     private final Test_UU1 test_UU1 = new Test_UU1();
 
     public static void main(String[] args) {
         JFrame frame = new JFrame("Test_U1");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setSize(600, 650);
+        // frame.setSize(600, 650);
+        frame.setSize(400, 450);
         frame.add(new Test_U1());
         frame.setLocationRelativeTo(null);
-        frame.setLocation(100, 150);
+        // frame.setLocation(100, 150);
+        frame.setLocation(350, 0);
         frame.setVisible(true);
     }
 
     // static {
     //     try {
     //         // โหลดภาพครั้งเดียวตอน class โหลด
-    //         samoyedImage = ImageIO.read(new File("img/samoyed_walk_08.png")); // ชื่อไฟล์และ path ปรับให้ตรงของคุณ
+    //         samoyedImage = ImageIO.read(new File("img/samoyed_walk_02.png")); // ชื่อไฟล์และ path ปรับให้ตรงของคุณ
     //         // samoyedImage = ImageIO.read(Samoyed.class.getResource("/img/samoyed_walk_01.png"));
 
     //     } catch (IOException e) {
