@@ -1,0 +1,17 @@
+down
+
+boo_hat
+s_hat
+hat
+shirt_pok
+head
+eye
+nose
+tongue
+tail
+hand_R
+hand_L
+leg_R
+leg_L
+
+top

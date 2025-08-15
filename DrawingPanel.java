@@ -21,6 +21,8 @@ public class DrawingPanel extends JPanel implements ActionListener {
     private final Clouds clouds = new Clouds();
     private final Characters characters = new Characters();
 
+    private final Test_UU0 test_UU0 = new Test_UU0();
+
     public DrawingPanel() {
         this.setPreferredSize(new Dimension(PANEL_WIDTH, PANEL_HEIGHT));
         this.setBackground(Color.CYAN);
@@ -40,6 +42,8 @@ public class DrawingPanel extends JPanel implements ActionListener {
         sand.draw(g2d, PANEL_WIDTH, characterX);
         clouds.draw(g2d, PANEL_WIDTH);
         characters.draw(g2d, characterX);
+
+        test_UU0.draw(g2d, characterX, sunY);
     }
 
     @Override

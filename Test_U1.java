@@ -6,18 +6,18 @@ import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 
-public class Test_U0 extends JPanel{
+public class Test_U1 extends JPanel{
     private static BufferedImage samoyedImage;
     private double characterX = 60;
     private double characterY = 60;
 
-    private final Test_UU0 test_UU = new Test_UU0();
+    private final Test_UU1 test_UU1 = new Test_UU1();
 
     public static void main(String[] args) {
-        JFrame frame = new JFrame("Test_U0");
+        JFrame frame = new JFrame("Test_U1");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setSize(600, 650);
-        frame.add(new Test_U0());
+        frame.add(new Test_U1());
         frame.setLocationRelativeTo(null);
         frame.setLocation(100, 150);
         frame.setVisible(true);
@@ -53,7 +53,7 @@ public class Test_U0 extends JPanel{
         //     g2.drawImage(samoyedImage, 60, 60, null);
         // }
 
-        test_UU.draw(g2, characterX, characterY);
+        test_UU1.draw(g2, characterX, characterY);
 
         // คืนค่ากลับ transform เดิม (ถ้ามีอะไรจะวาดต่อข้างนอก)
         g2.setTransform(oldTransform);
