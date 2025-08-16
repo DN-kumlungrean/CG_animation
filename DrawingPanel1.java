@@ -6,35 +6,34 @@ import java.awt.event.ActionListener;
 public class DrawingPanel1 extends JPanel implements ActionListener {
     private final int PANEL_WIDTH = 600, PANEL_HEIGHT = 600; 
     
+    // Sun animation
     private static final double SUN_START_Y = 100.0; 
     private static final double SUN_END_Y = 200.0;  
     private static final int ANIMATION_DURATION_MS = 5000; 
-    private static final int TIMER_DELAY_MS = 30; 
-    // Wave timings (time-based ping-pong)
-    private static final int WAVE_IN_MS  = 8000; 
-    private static final int WAVE_OUT_MS = 6000; 
+    private static final int TIMER_DELAY_MS = 30;  
     private static final double SUN_Y_INCREMENT = 
         (SUN_END_Y - SUN_START_Y) / (ANIMATION_DURATION_MS / (double)TIMER_DELAY_MS);
+    private double sunY = SUN_START_Y;
 
-    private double sunY = SUN_START_Y; 
+    // Wave wash ping-pong timing
+    private static final int WAVE_IN_MS  = 8000; // reach in
+    private static final int WAVE_OUT_MS = 6000; // retract
+
+    // Footprint
     private double waveOffset = 0;
     private double characterX = -100;
-    private final Timer timer;
 
-    private int characterFrame = 1;     
-    private int frameUpdateCounter = 0;
-
-    private double shorelineOffset = 0.0; // เพิ่มตัวแปรนี้เพื่อควบคุม "รูปร่าง" คลื่น
-    private double waveWashProgress = 0.0; // เพิ่มตัวแปรนี้เพื่อควบคุม "ระยะซัดฝั่ง"
-    private boolean waveIsAdvancing = true;
+    // Shoreline animation
+    private double shorelineOffset = 0.0; // ควบคุม "รูปร่าง" คลื่น
+    private double waveWashProgress = 0.0; // ควบคุม "ระยะซัดฝั่ง"
     private final long waveLoopStartNano = System.nanoTime();
-
+    
+    private final Timer timer;
     private final Sky sky = new Sky();
     private final Sea sea = new Sea();
     private final Sand sand = new Sand();
     private final Clouds clouds = new Clouds();
     private final Shoreline shoreline = new Shoreline();
-    //private final WadSamoyed wadSamoyed = new WadSamoyed();
     private final Test_UU1 test_UU1 = new Test_UU1();
 
     public DrawingPanel1() {
@@ -50,6 +49,7 @@ public class DrawingPanel1 extends JPanel implements ActionListener {
         Graphics2D g2d = (Graphics2D) g;
         g2d.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
 
+        // Draw (Sort by order)
         sky.draw(g2d, PANEL_WIDTH, (int) Math.round(sunY));       
         sea.draw(g2d, PANEL_WIDTH, waveOffset, (int) Math.round(sunY));
         sand.draw(g2d, PANEL_WIDTH, characterX);
@@ -57,8 +57,6 @@ public class DrawingPanel1 extends JPanel implements ActionListener {
         shoreline.drawStaged(g2d, PANEL_WIDTH, PANEL_HEIGHT, sea.getShoreY(),
                      shorelineOffset, waveWashProgress);
 
-
-        //wadSamoyed.draw(g2d, characterX, 365, characterFrame);
         //test_UU1.draw(g2d, characterX, sunY);
     }
 
@@ -70,22 +68,14 @@ public class DrawingPanel1 extends JPanel implements ActionListener {
             sunY = SUN_END_Y; 
         }
 
+        // Footprints
         waveOffset -= 1.5;
         if (waveOffset < -50) waveOffset = 0;
         characterX += 2;
         if (characterX > PANEL_WIDTH + 100) characterX = -100;
-        
-        frameUpdateCounter++;
-        if (frameUpdateCounter % 4 == 0) { 
-            characterFrame++;
-            if (characterFrame > 8) {
-                characterFrame = 1; 
-            }
-        }
 
-        // --- Logic ใหม่สำหรับ Shoreline ---
-        shorelineOffset += 1; // ทำให้รูปร่างคลื่นเปลี่ยนแปลงช้าๆ
-
+        // Logic Shoreline 
+        shorelineOffset += 1; 
         {
             // Time-based wave progress: 0→1 in WAVE_IN_MS, then 1→0 in WAVE_OUT_MS (seamless)
             long now = System.nanoTime();
