@@ -2,7 +2,6 @@ import java.util.List;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.awt.*;
-import java.awt.geom.*;
 
 
 public class Test_UU2 {
@@ -2176,64 +2175,6 @@ public class Test_UU2 {
         g2d.drawLine(x, y, x, y); // pixel = line จุดเดียว
     }
 
-    // Bresenham's Line Algorithm
-    private static void drawLineBresenham(Graphics2D g2d, int x1, int y1, int x2, int y2) {
-        int dx = Math.abs(x2 - x1);
-        int dy = Math.abs(y2 - y1);
-        int sx = (x1 < x2) ? 1 : -1;
-        int sy = (y1 < y2) ? 1 : -1;
-        int err = dx - dy;
-
-        while (true) {
-            putPixel(g2d, x1, y1);
-            if (x1 == x2 && y1 == y2) break;
-            int e2 = 2 * err;
-            if (e2 > -dy) { err -= dy; x1 += sx; }
-            if (e2 < dx) { err += dx; y1 += sy; }
-        }
-    }
-
-    // Midpoint Circle Algorithm
-    private static void drawCircleMidpoint(Graphics2D g2d, int xc, int yc, int r) {
-        int x = 0, y = r;
-        int d = 1 - r;
-
-        while (x <= y) {
-            putPixel(g2d, xc + x, yc + y);
-            putPixel(g2d, xc - x, yc + y);
-            putPixel(g2d, xc + x, yc - y);
-            putPixel(g2d, xc - x, yc - y);
-            putPixel(g2d, xc + y, yc + x);
-            putPixel(g2d, xc - y, yc + x);
-            putPixel(g2d, xc + y, yc - x);
-            putPixel(g2d, xc - y, yc - x);
-
-            x++;
-            if (d < 0) {
-                d += 2 * x + 1;
-            } else {
-                y--;
-                d += 2 * (x - y) + 1;
-            }
-        }
-    }
-
-    // Quadratic Bezier Curve
-    private static void drawBezierQuadraticConnected(Graphics2D g2d, int[] x, int[] y, double dt) {
-        double t = 0.0;
-        double px = x[0], py = y[0];  // B(0) = P0
-        while (t <= 1.0) {
-            double xt = (1 - t)*(1 - t)*x[0] + 2*(1 - t)*t*x[1] + t*t*x[2];
-            double yt = (1 - t)*(1 - t)*y[0] + 2*(1 - t)*t*y[1] + t*t*y[2];
-
-            drawLineBresenham(g2d, (int)Math.round(px), (int)Math.round(py),
-                                    (int)Math.round(xt), (int)Math.round(yt));
-
-            px = xt; py = yt;
-            t += dt;
-        }
-    }
-
     // วาดเส้นโค้ง Bezier Quadratic แบบสมูท (บาง 1 px)
     private static void drawBezierQuadraticSmooth(Graphics2D g2d, int[] x, int[] y, double dt) {
         for (double t = 0.0; t <= 1.0; t += dt) {
@@ -2245,74 +2186,6 @@ public class Test_UU2 {
                     + t * t * y[2];
 
             putPixel(g2d, (int)Math.round(xt), (int)Math.round(yt));
-        }
-    }
-
-
-
-    private static void drawBezierSet(Graphics2D g2d, int[][] points, double dt) {
-        for (int i = 0; i < points.length; i++) {
-            int[] x = { points[i][0], points[i][2], points[i][4] };
-            int[] y = { points[i][1], points[i][3], points[i][5] };
-            drawBezierQuadraticConnected(g2d, x, y, dt);
-        }
-    }
-
-
-    // Midpoint Ellipse Algorithm
-    private static void drawEllipseMidpoint(Graphics2D g2d, int xc, int yc, int rx, int ry) {
-        int x = 0, y = ry;
-
-        // Decision parameter for region 1
-        double dx = 2 * ry * ry * x;
-        double dy = 2 * rx * rx * y;
-
-        double d1 = (ry * ry) - (rx * rx * ry) + (0.25 * rx * rx);
-
-        // Region 1
-        while (dx < dy) {
-            // วาด 4 จุดสมมาตร
-            putPixel(g2d, xc + x, yc + y);
-            putPixel(g2d, xc - x, yc + y);
-            putPixel(g2d, xc + x, yc - y);
-            putPixel(g2d, xc - x, yc - y);
-
-            if (d1 < 0) {
-                x++;
-                dx += 2 * ry * ry;
-                d1 += dx + (ry * ry);
-            } else {
-                x++;
-                y--;
-                dx += 2 * ry * ry;
-                dy -= 2 * rx * rx;
-                d1 += dx - dy + (ry * ry);
-            }
-        }
-
-        // Decision parameter for region 2
-        double d2 = ((ry * ry) * (x + 0.5) * (x + 0.5)) +
-                    ((rx * rx) * (y - 1) * (y - 1)) -
-                    (rx * rx * ry * ry);
-
-        // Region 2
-        while (y >= 0) {
-            putPixel(g2d, xc + x, yc + y);
-            putPixel(g2d, xc - x, yc + y);
-            putPixel(g2d, xc + x, yc - y);
-            putPixel(g2d, xc - x, yc - y);
-
-            if (d2 > 0) {
-                y--;
-                dy -= 2 * rx * rx;
-                d2 += (rx * rx) - dy;
-            } else {
-                y--;
-                x++;
-                dx += 2 * ry * ry;
-                dy -= 2 * rx * rx;
-                d2 += dx - dy + (rx * rx);
-            }
         }
     }
 
@@ -2388,120 +2261,6 @@ public class Test_UU2 {
         xs.add(xc - x); ys.add(yc + y);
         xs.add(xc + x); ys.add(yc - y);
         xs.add(xc - x); ys.add(yc - y);
-    }
-
-
-    private static void fillEllipseWH(Graphics2D g2d, int xc, int yc, int w, int h, Color fillColor, Color borderColor) {
-        int rx = w / 2;
-        int ry = h / 2;
-        fillEllipse(g2d, xc, yc, rx, ry, fillColor, borderColor);
-    }
-
-    private static void fillBezierQuadratic(Graphics2D g2d, int[] x, int[] y, double dt) {
-        java.util.List<Integer> xs = new ArrayList<>();
-        java.util.List<Integer> ys = new ArrayList<>();
-
-        // จุดเริ่ม
-        xs.add(x[0]);
-        ys.add(y[0]);
-
-        // เก็บจุดตามโค้ง
-        for (double t = 0.0; t <= 1.0; t += dt) {
-            double xt = (1 - t) * (1 - t) * x[0]
-                    + 2 * (1 - t) * t * x[1]
-                    + t * t * x[2];
-            double yt = (1 - t) * (1 - t) * y[0]
-                    + 2 * (1 - t) * t * y[1]
-                    + t * t * y[2];
-            xs.add((int)Math.round(xt));
-            ys.add((int)Math.round(yt));
-        }
-
-        // ปิดพื้นที่กลับมาที่ P0 (เพื่อให้เป็น Polygon ปิด)
-        xs.add(x[0]);
-        ys.add(y[0]);
-
-        // แปลง List → array
-        int[] xPoints = xs.stream().mapToInt(Integer::intValue).toArray();
-        int[] yPoints = ys.stream().mapToInt(Integer::intValue).toArray();
-
-        // fill ด้วย polygon
-        g2d.fillPolygon(xPoints, yPoints, xPoints.length);
-    }
-
-    private static void fillBezierPath(Graphics2D g2d, int[][] xs, int[][] ys, double dt) {
-        java.util.List<Integer> allX = new ArrayList<>();
-        java.util.List<Integer> allY = new ArrayList<>();
-
-        // จุดเริ่มจาก segment แรก
-        allX.add(xs[0][0]);
-        allY.add(ys[0][0]);
-
-        // วนทุก segment (แต่ละ segment = Bezier 1 เส้น)
-        for (int s = 0; s < xs.length; s++) {
-            int[] x = xs[s];
-            int[] y = ys[s];
-
-            for (double t = 0.0; t <= 1.0; t += dt) {
-                double xt = (1 - t) * (1 - t) * x[0]
-                        + 2 * (1 - t) * t * x[1]
-                        + t * t * x[2];
-                double yt = (1 - t) * (1 - t) * y[0]
-                        + 2 * (1 - t) * t * y[1]
-                        + t * t * y[2];
-
-                allX.add((int)Math.round(xt));
-                allY.add((int)Math.round(yt));
-            }
-        }
-
-        // ปิด path กลับไปจุดเริ่ม
-        allX.add(xs[0][0]);
-        allY.add(ys[0][0]);
-
-        // แปลงเป็น array
-        int[] xPoints = allX.stream().mapToInt(Integer::intValue).toArray();
-        int[] yPoints = allY.stream().mapToInt(Integer::intValue).toArray();
-
-        // fill polygon
-        g2d.fillPolygon(xPoints, yPoints, xPoints.length);
-    }
-
-    private static void fillBezierPath(Graphics2D g2d, List<int[]> curves, double dt) {
-        java.util.List<Integer> allX = new ArrayList<>();
-        java.util.List<Integer> allY = new ArrayList<>();
-
-        // จุดเริ่มจาก curve แรก
-        allX.add(curves.get(0)[0]);
-        allY.add(curves.get(0)[1]);
-
-        // วนทุก Bezier curve
-        for (int[] c : curves) {
-            int x0 = c[0], y0 = c[1];
-            int x1 = c[2], y1 = c[3];
-            int x2 = c[4], y2 = c[5];
-
-            for (double t = 0.0; t <= 1.0; t += dt) {
-                double xt = (1 - t) * (1 - t) * x0
-                        + 2 * (1 - t) * t * x1
-                        + t * t * x2;
-                double yt = (1 - t) * (1 - t) * y0
-                        + 2 * (1 - t) * t * y1
-                        + t * t * y2;
-
-                allX.add((int)Math.round(xt));
-                allY.add((int)Math.round(yt));
-            }
-        }
-
-        // ปิด path
-        allX.add(curves.get(0)[0]);
-        allY.add(curves.get(0)[1]);
-
-        int[] xPoints = allX.stream().mapToInt(Integer::intValue).toArray();
-        int[] yPoints = allY.stream().mapToInt(Integer::intValue).toArray();
-
-        g2d.fillPolygon(xPoints, yPoints, xPoints.length);
     }
 
     private static void fillBezierShape(Graphics2D g2d, List<int[]> curves, double dt, Color fillColor, Color borderColor) {
@@ -2593,9 +2352,4 @@ public class Test_UU2 {
             }
         }
     }
-
-
-
-    
-
 }
