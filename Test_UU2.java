@@ -9,8 +9,7 @@ public class Test_UU2 {
     // private static Color borderColor = new Color(63, 38, 76);
     private static Color borderColor = new Color(73, 44, 89);
 
-    public static void draw(Graphics2D g2d, double x, double y){
-
+    public static void draw1(Graphics2D g2d, double x, double y){
         // frame 1
         // เปิดใช้งานความเรียบเนียน (Anti-aliasing)
         g2d.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
@@ -85,7 +84,7 @@ public class Test_UU2 {
         fill_leg1.addPoint((int)x + 90, (int)y + 120);
 
         g2d.setColor(new Color(255, 245, 227)); // สีผิว
-        g2d.fill(fill_leg1);
+        g2d.fillPolygon(fill_leg1.xpoints, fill_leg1.ypoints, fill_leg1.npoints);
 
         // leg_L1
         List<int[]> leg_L1 = List.of(
@@ -128,7 +127,7 @@ public class Test_UU2 {
         fill_shirt1.addPoint((int)x + 150, (int)y + 86);
 
         g2d.setColor(new Color(255, 255, 255)); // สีผิว
-        g2d.fill(fill_shirt1);
+        g2d.fillPolygon(fill_shirt1.xpoints, fill_shirt1.ypoints, fill_shirt1.npoints);
 
         // shirt1
         List<int[]> shirt1 = List.of(
@@ -269,13 +268,9 @@ public class Test_UU2 {
             new int[]{(int)x + 134, (int)x + 138, (int)x + 144, (int)y + 64, (int)y + 68, (int)y + 62}
         );
         fillBezierShape(g2d, mouth1, 0.001, null, borderColor);
+    }
 
-
-
-
-
-
-
+    public static void draw2(Graphics2D g2d, double x, double y){
         // frame 2
         // เปิดใช้งานความเรียบเนียน (Anti-aliasing)
         g2d.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
@@ -349,7 +344,7 @@ public class Test_UU2 {
         fill_leg2.addPoint((int)x + 90, (int)y + 120);
 
         g2d.setColor(new Color(255, 245, 227)); // สีผิว
-        g2d.fill(fill_leg2);
+        g2d.fillPolygon(fill_leg2.xpoints, fill_leg2.ypoints, fill_leg2.npoints);
 
         // leg_L
         List<int[]> leg_L2 = List.of(
@@ -392,7 +387,7 @@ public class Test_UU2 {
         fill_shirt2.addPoint((int)x + 150, (int)y + 86);
 
         g2d.setColor(new Color(255, 255, 255)); // สีผิว
-        g2d.fill(fill_shirt2);
+        g2d.fillPolygon(fill_shirt2.xpoints, fill_shirt2.ypoints, fill_shirt2.npoints);
 
         // shirt
         List<int[]> shirt2 = List.of(
@@ -533,18 +528,9 @@ public class Test_UU2 {
             new int[]{(int)x + 134, (int)x + 138, (int)x + 144, (int)y + 64, (int)y + 68, (int)y + 62}
         );
         fillBezierShape(g2d, mouth2, 0.001, null, borderColor);
+    }
 
-
-
-
-
-
-
-
-
-
-
-
+    public static void draw3(Graphics2D g2d, double x, double y){
         // frame 3
         // เปิดใช้งานความเรียบเนียน (Anti-aliasing)
         g2d.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
@@ -619,7 +605,7 @@ public class Test_UU2 {
         fill_leg3.addPoint((int)x + 90, (int)y + 120);
 
         g2d.setColor(new Color(255, 245, 227)); // สีผิว
-        g2d.fill(fill_leg3);
+        g2d.fillPolygon(fill_leg3.xpoints, fill_leg3.ypoints, fill_leg3.npoints);
 
         // leg_L
         List<int[]> leg_L3 = List.of(
@@ -664,7 +650,7 @@ public class Test_UU2 {
         fill_shirt3.addPoint((int)x + 150, (int)y + 86);
 
         g2d.setColor(new Color(255, 255, 255)); // สีผิว
-        g2d.fill(fill_shirt3);
+        g2d.fillPolygon(fill_shirt3.xpoints, fill_shirt3.ypoints, fill_shirt3.npoints);
 
         // shirt
         List<int[]> shirt3 = List.of(
@@ -805,15 +791,9 @@ public class Test_UU2 {
             new int[]{(int)x + 134, (int)x + 138, (int)x + 144, (int)y + 64, (int)y + 68, (int)y + 62}
         );
         fillBezierShape(g2d, mouth3, 0.001, null, borderColor);
+    }
 
-
-
-
-
-
-
-
-
+    public static void draw4(Graphics2D g2d, double x, double y){
         // frame 4
         // เปิดใช้งานความเรียบเนียน (Anti-aliasing)
         g2d.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
@@ -888,7 +868,7 @@ public class Test_UU2 {
         fill_leg4.addPoint((int)x + 90, (int)y + 120);
 
         g2d.setColor(new Color(255, 245, 227)); // สีผิว
-        g2d.fill(fill_leg4);
+        g2d.fillPolygon(fill_leg4.xpoints, fill_leg4.ypoints, fill_leg4.npoints);
 
         // leg_L
         List<int[]> leg_L4 = List.of(
@@ -933,7 +913,7 @@ public class Test_UU2 {
         fill_shirt4.addPoint((int)x + 150, (int)y + 86);
 
         g2d.setColor(new Color(255, 255, 255)); // สีผิว
-        g2d.fill(fill_shirt4);
+        g2d.fillPolygon(fill_shirt4.xpoints, fill_shirt4.ypoints, fill_shirt4.npoints);
 
         // shirt
         List<int[]> shirt4 = List.of(
@@ -1074,15 +1054,9 @@ public class Test_UU2 {
             new int[]{(int)x + 134, (int)x + 138, (int)x + 144, (int)y + 64, (int)y + 68, (int)y + 62}
         );
         fillBezierShape(g2d, mouth4, 0.001, null, borderColor);
+    }
 
-
-
-
-
-
-
-
-
+    public static void draw5(Graphics2D g2d, double x, double y){
         // frame 5
         // เปิดใช้งานความเรียบเนียน (Anti-aliasing)
         g2d.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
@@ -1157,7 +1131,7 @@ public class Test_UU2 {
         fill_leg5.addPoint((int)x + 90, (int)y + 120);
 
         g2d.setColor(new Color(255, 245, 227)); // สีผิว
-        g2d.fill(fill_leg5);
+        g2d.fillPolygon(fill_leg5.xpoints, fill_leg5.ypoints, fill_leg5.npoints);
 
         // leg_L
         List<int[]> leg_L5 = List.of(
@@ -1202,7 +1176,7 @@ public class Test_UU2 {
         fill_shirt5.addPoint((int)x + 150, (int)y + 86);
 
         g2d.setColor(new Color(255, 255, 255)); // สีผิว
-        g2d.fill(fill_shirt5);
+        g2d.fillPolygon(fill_shirt5.xpoints, fill_shirt5.ypoints, fill_shirt5.npoints);
 
         // shirt
         List<int[]> shirt5 = List.of(
@@ -1343,19 +1317,9 @@ public class Test_UU2 {
             new int[]{(int)x + 134, (int)x + 138, (int)x + 144, (int)y + 64, (int)y + 68, (int)y + 62}
         );
         fillBezierShape(g2d, mouth5, 0.001, null, borderColor);
+    }
 
-
-
-
-
-
-
-
-
-
-
-
-
+    public static void draw6(Graphics2D g2d, double x, double y){
         // frame 6
         // เปิดใช้งานความเรียบเนียน (Anti-aliasing)
         g2d.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
@@ -1430,7 +1394,7 @@ public class Test_UU2 {
         fill_leg6.addPoint((int)x + 90, (int)y + 120);
 
         g2d.setColor(new Color(255, 245, 227)); // สีผิว
-        g2d.fill(fill_leg6);
+        g2d.fillPolygon(fill_leg6.xpoints, fill_leg6.ypoints, fill_leg6.npoints);
 
         // leg_L
         List<int[]> leg_L6 = List.of(
@@ -1475,7 +1439,7 @@ public class Test_UU2 {
         fill_shirt6.addPoint((int)x + 150, (int)y + 86);
 
         g2d.setColor(new Color(255, 255, 255)); // สีผิว
-        g2d.fill(fill_shirt6);
+        g2d.fillPolygon(fill_shirt6.xpoints, fill_shirt6.ypoints, fill_shirt6.npoints);
 
         // shirt
         List<int[]> shirt6 = List.of(
@@ -1616,16 +1580,9 @@ public class Test_UU2 {
             new int[]{(int)x + 134, (int)x + 138, (int)x + 144, (int)y + 64, (int)y + 68, (int)y + 62}
         );
         fillBezierShape(g2d, mouth6, 0.001, null, borderColor);
+    }
 
-
-
-
-
-
-
-
-
-
+    public static void draw7(Graphics2D g2d, double x, double y){
         // frame 7
         // เปิดใช้งานความเรียบเนียน (Anti-aliasing)
         g2d.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
@@ -1700,7 +1657,7 @@ public class Test_UU2 {
         fill_leg7.addPoint((int)x + 90, (int)y + 120);
 
         g2d.setColor(new Color(255, 245, 227)); // สีผิว
-        g2d.fill(fill_leg7);
+        g2d.fillPolygon(fill_leg7.xpoints, fill_leg7.ypoints, fill_leg7.npoints);
 
         // leg_L
         List<int[]> leg_L7 = List.of(
@@ -1745,7 +1702,7 @@ public class Test_UU2 {
         fill_shirt7.addPoint((int)x + 150, (int)y + 86);
 
         g2d.setColor(new Color(255, 255, 255)); // สีผิว
-        g2d.fill(fill_shirt7);
+        g2d.fillPolygon(fill_shirt7.xpoints, fill_shirt7.ypoints, fill_shirt7.npoints);
 
         // shirt
         List<int[]> shirt7 = List.of(
@@ -1886,20 +1843,9 @@ public class Test_UU2 {
             new int[]{(int)x + 134, (int)x + 138, (int)x + 144, (int)y + 64, (int)y + 68, (int)y + 62}
         );
         fillBezierShape(g2d, mouth7, 0.001, null, borderColor);
+    }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
+    public static void draw8(Graphics2D g2d, double x, double y){
         // frame 8
         // เปิดใช้งานความเรียบเนียน (Anti-aliasing)
         g2d.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
@@ -1974,7 +1920,7 @@ public class Test_UU2 {
         fill_leg8.addPoint((int)x + 90, (int)y + 120);
 
         g2d.setColor(new Color(255, 245, 227)); // สีผิว
-        g2d.fill(fill_leg8);
+        g2d.fillPolygon(fill_leg8.xpoints, fill_leg8.ypoints, fill_leg8.npoints);
 
         // leg_L
         List<int[]> leg_L8 = List.of(
@@ -2019,7 +1965,7 @@ public class Test_UU2 {
         fill_shirt8.addPoint((int)x + 150, (int)y + 86);
 
         g2d.setColor(new Color(255, 255, 255)); // สีผิว
-        g2d.fill(fill_shirt8);
+        g2d.fillPolygon(fill_shirt8.xpoints, fill_shirt8.ypoints, fill_shirt8.npoints);
 
         // shirt
         List<int[]> shirt8 = List.of(
@@ -2160,15 +2106,6 @@ public class Test_UU2 {
             new int[]{(int)x + 134, (int)x + 138, (int)x + 144, (int)y + 64, (int)y + 68, (int)y + 62}
         );
         fillBezierShape(g2d, mouth8, 0.001, null, borderColor);
-
-
-
-
-
-
-
-
-
     }
 
     private static void putPixel(Graphics2D g2d, int x, int y) {
@@ -2350,6 +2287,26 @@ public class Test_UU2 {
                     g2d.drawLine(xStart, y, xEnd, y);
                 }
             }
+        }
+    }
+
+    public static final int FRAME_COUNT = 8;
+
+    public static void draw(Graphics2D g2d, double x, double y) {
+        draw(g2d, x, y, 0);
+    }
+
+    // ตัวรับ frameIndex จากภายนอก
+    public static void draw(Graphics2D g2d, double x, double y, int frameIndex) {
+        switch (frameIndex & 7) {  // 0..7
+            case 0: draw1(g2d, x, y); break;
+            case 1: draw2(g2d, x, y); break;
+            case 2: draw3(g2d, x, y); break;
+            case 3: draw4(g2d, x, y); break;
+            case 4: draw5(g2d, x, y); break;
+            case 5: draw6(g2d, x, y); break;
+            case 6: draw7(g2d, x, y); break;
+            default: draw8(g2d, x, y); break;
         }
     }
 }
