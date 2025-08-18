@@ -25,7 +25,7 @@ public class Clouds {
     private final Band[] bands = new Band[]{
         new Band( 100, 30, 170, 9.0, new Color(240,225,205,150), new Color(255,245,220,190), 3, 0.00),
         new Band(65, 15, 150, 12.0, new Color(240,225,207,140), new Color(255,236,189,180), 4, 0.18),
-        new Band(35, 5, 120, 18.0, new Color(233,211,181,140), new Color(219,189,128,190), 2, 0.36), //225,194,154 
+        new Band(35, 5, 120, 18.0, new Color(233,211,181,140), new Color(232,212,172,190), 2, 0.36), 
     };
 
     public void draw(Graphics2D g2d, int panelWidth) {
