@@ -23,7 +23,7 @@ public class Test_U1 extends JPanel{
         frame.add(new Test_U1());
         frame.setLocationRelativeTo(null);
         // frame.setLocation(100, 150);
-        frame.setLocation(350, 0);
+        frame.setLocation(0, 400);
         frame.setVisible(true);
     }
 
@@ -45,7 +45,7 @@ public class Test_U1 extends JPanel{
         Graphics2D g2 = (Graphics2D) g;
 
         // กำหนดอัตราส่วนขยาย เช่น 1.5 = ขยายใหญ่ 150%
-        double scale = 2;
+        double scale = 1;
 
         // บันทึก transform เดิมไว้
         AffineTransform oldTransform = g2.getTransform();

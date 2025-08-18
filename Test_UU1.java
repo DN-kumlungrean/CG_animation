@@ -8,7 +8,7 @@ public class Test_UU1 {
         // // เปิดใช้งานความเรียบเนียน (Anti-aliasing)
         // g2d.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
         // // หนา 3 px
-        // g2d.setStroke(new BasicStroke(3));
+        // g2d.setStroke(new BasicStroke(2));
         
         // Path2D shadow_boo_hat1 = new Path2D.Double();
         // shadow_boo_hat1.moveTo(x + 73, y + 21);

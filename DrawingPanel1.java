@@ -34,7 +34,8 @@ public class DrawingPanel1 extends JPanel implements ActionListener {
     private final Sand sand = new Sand();
     private final Clouds clouds = new Clouds();
     private final Shoreline shoreline = new Shoreline();
-    private final Test_UU1 test_UU1 = new Test_UU1();
+    private final Shadow shadow = new Shadow();
+    private final Test_UU2 test_UU2 = new Test_UU2();
 
     public DrawingPanel1() {
         this.setPreferredSize(new Dimension(PANEL_WIDTH, PANEL_HEIGHT));
@@ -57,7 +58,8 @@ public class DrawingPanel1 extends JPanel implements ActionListener {
         shoreline.drawStaged(g2d, PANEL_WIDTH, PANEL_HEIGHT, sea.getShoreY(),
                      shorelineOffset, waveWashProgress);
 
-        //test_UU1.draw(g2d, characterX, sunY);
+        shadow.drawMidpointEllipse(g2d, (int)characterX + 100, 480, 80, 20);
+        test_UU2.draw(g2d, characterX, 300);
     }
 
     @Override
@@ -72,7 +74,7 @@ public class DrawingPanel1 extends JPanel implements ActionListener {
         waveOffset -= 1.5;
         if (waveOffset < -50) waveOffset = 0;
         characterX += 2;
-        if (characterX > PANEL_WIDTH + 100) characterX = -100;
+        if (characterX > PANEL_WIDTH) characterX = -100;
 
         // Logic Shoreline 
         shorelineOffset += 1; 

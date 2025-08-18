@@ -57,7 +57,7 @@ public class Test_U0 extends JPanel{
         //     g2.drawImage(samoyedImage, 60, 60, null);
         // }
 
-        test_UU.draw(g2, characterX, characterY);
+        test_UU.draw(g2, characterX, 300);
 
         // คืนค่ากลับ transform เดิม (ถ้ามีอะไรจะวาดต่อข้างนอก)
         g2.setTransform(oldTransform);
