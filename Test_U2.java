@@ -19,11 +19,11 @@ public class Test_U2 extends JPanel{
         JFrame frame = new JFrame("Test_U2");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         // frame.setSize(600, 650);
-        frame.setSize(400, 450);
+        frame.setSize(250, 250);
         frame.add(new Test_U2());
         frame.setLocationRelativeTo(null);
         // frame.setLocation(100, 150);
-        frame.setLocation(0, 0);
+        frame.setLocation(0, 600);
         frame.setVisible(true);
     }
 
@@ -43,6 +43,10 @@ public class Test_U2 extends JPanel{
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
         Graphics2D g2 = (Graphics2D) g;
+
+        // เติมพื้นหลังสีแดงเต็ม panel
+        g2.setColor(new Color(237, 210, 175));
+        g2.fillRect(0, 0, getWidth(), getHeight());
 
         // กำหนดอัตราส่วนขยาย เช่น 1.5 = ขยายใหญ่ 150%
         double scale = 1;
