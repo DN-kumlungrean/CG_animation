@@ -50,10 +50,10 @@ public class DrawingPanel1 extends JPanel implements ActionListener {
         g2d.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
 
         // Draw (Sort by order)
-        sky.draw(g2d, PANEL_WIDTH, (int) Math.round(sunY));       
-        sea.draw(g2d, PANEL_WIDTH, waveOffset, (int) Math.round(sunY));
-        sand.draw(g2d, PANEL_WIDTH, characterX);
+        sky.draw(g2d, PANEL_WIDTH, (int) Math.round(sunY));
         clouds.draw(g2d, PANEL_WIDTH);
+        sand.draw(g2d, PANEL_WIDTH, characterX);       
+        sea.draw(g2d, PANEL_WIDTH, waveOffset, (int) Math.round(sunY));
         shoreline.drawStaged(g2d, PANEL_WIDTH, PANEL_HEIGHT, sea.getShoreY(),
                      shorelineOffset, waveWashProgress);
 
