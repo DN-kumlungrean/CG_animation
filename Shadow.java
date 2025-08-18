@@ -6,8 +6,8 @@ public class Shadow {
         Paint originalPaint = g.getPaint();
 
         // ใช้ gradient ดำจางๆ เป็นเงา
-        g.setPaint(new GradientPaint(cx, cy - b, new Color(0, 0, 0, 100),
-                                     cx, cy + b, new Color(0, 0, 0, 0)));
+        g.setPaint(new GradientPaint(cx, cy - b, new Color(0, 0, 0, 50),
+                                     cx, cy + b, new Color(0, 0, 0,50)));
 
         int top = cy - b;
         int bottom = cy + b;
